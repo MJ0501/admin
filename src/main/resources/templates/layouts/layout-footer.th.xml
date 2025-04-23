@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<thlogic>
+  <attr sel="#footer-link" th:href="@{https://github.com/MJ0501/admin.git}" th:text="'게시판 어드민 프로젝트 GitHub'" />
+  <attr sel="#notion-link" th:href="@{https://lapis-end-7a8.notion.site/MJ-s-Notes-e779eeda32e941c5a4d51925578d6db3}" th:text="'Notion Page'" />
+</thlogic>
