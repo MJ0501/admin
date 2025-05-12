@@ -7,7 +7,7 @@
   <meta name="author" content="MJ">
   <title>공통 왼쪽 사이드 바</title>
 </head>
-<body>
+<body th:with="requestURI=${#httpServletRequest.getRequestURI()}">
   <aside class="main-sidebar sidebar-dark-info elevation-4">
     <!--/* Brand Logo */-->
     <a id="admin-logo-link" class="brand-link">

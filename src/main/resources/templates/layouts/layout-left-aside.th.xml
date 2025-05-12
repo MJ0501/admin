@@ -1,31 +1,28 @@
-<!--
 <?xml version="1.0"?>
 <thlogic>
-  <attr sel="#admin-logo-link" th:href="@{/}" />
-  <attr sel="#user-profile" th:href="@{#}" sec:authorize="isAuthenticated()" sec:authentication="principal.nickname" />
-  <attr sel="#management-category" th:classappend="${#request.requestURI.startsWith('/management')} ? 'active'" />
-  <attr
-      sel="#article-management"
-      th:href="@{/management/articles}"
-&lt;!&ndash;      th:classappend="${#request.requestURI.equals('/management/articles')} ? 'active'"&ndash;&gt;
-  />
-  <attr
-      sel="#article-comment-management"
-      th:href="@{/management/article-comments}"
- &lt;!&ndash;     th:classappend="${#request.requestURI.equals('/management/article-comments')} ? 'active'"&ndash;&gt;
-  />
-  <attr
-      sel="#user-account-management"
-      th:href="@{/management/user-accounts}"
- &lt;!&ndash;     th:classappend="${#request.requestURI.equals('/management/user-accounts')} ? 'active'"&ndash;&gt;
-  />
-  <attr sel="#admin-category" th:classappend="${#request.requestURI.startsWith('/admin')} ? 'active'" />
-  <attr
-      sel="#admin-members"
-      th:href="@{/admin/members}"
-&lt;!&ndash;      th:classappend="${#request.requestURI.equals('/admin/members')} ? 'active'"&ndash;&gt;
-  />
+    <attr sel="#admin-logo-link" th:href="@{/}" />
+    <attr sel="#user-profile" th:href="@{#}" />
 
-&lt;!&ndash;  <attr sel="#visit-count" th:text="${visitCount}" />&ndash;&gt;
+    <!--TODO Thymeleaf 3.x 에서 EL 객체 사용불가(#request, #session 불가) 구현시 주의하기-->
+    <attr sel="#management-category"
+          th:classappend="${requestURI != null and requestURI.startsWith('/management')} ? 'active'" />
+
+    <attr sel="#article-management"
+          th:href="@{/management/articles}"
+          th:classappend="${requestURI != null and requestURI.equals('/management/articles')} ? 'active'" />
+
+    <attr sel="#article-comment-management"
+          th:href="@{/management/article-comments}"
+          th:classappend="${requestURI != null and requestURI.equals('/management/article-comments')} ? 'active'" />
+
+    <attr sel="#user-account-management"
+          th:href="@{/management/user-accounts}"
+          th:classappend="${requestURI != null and requestURI.equals('/management/user-accounts')} ? 'active'" />
+
+    <attr sel="#admin-category"
+          th:classappend="${requestURI != null and requestURI.startsWith('/admin')} ? 'active'" />
+
+    <attr sel="#admin-members"
+          th:href="@{/admin/members}"
+          th:classappend="${requestURI != null and requestURI.equals('/admin/members')} ? 'active'" />
 </thlogic>
--->
